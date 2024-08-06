@@ -293,7 +293,7 @@ plot.ri <- function(x, p = NULL, ...) {
   summary_df$term <- rownames(summary_df)
 
   ggplot(x$sims_df, aes(x = est_sim, alpha = extreme)) +
-    geom_histogram(bins = max(30, nrow(x$sims_df) / 20)) +
+    geom_histogram(bins = max(30, floor(nrow(x$sims_df) / 20))) +
     geom_vline(
       data = summary_df,
       aes(
